@@ -1,7 +1,3 @@
-#### 7) Create a README file to answer the following questions-
-
-> **⚠️ Warning:** Do not use any AI tools to answer these questions. You must write the answers in **Bangla**.
-
 #### 1) What is the difference between `null` and `undefined`?
 
 **উত্তর:**
@@ -116,6 +112,5 @@ if (true) {
 }
 console.log(blockVar); // Error: not accessible
 console.log(notBlockScoped); // accessible (কারণ var block scope follow করে না)
-
 
 ---
