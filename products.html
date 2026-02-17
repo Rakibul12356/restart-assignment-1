@@ -299,31 +299,70 @@
         </div>
       `;
 
+      // function makeCard(p) {
+      //   const card = document.createElement("div");
+      //   card.className =
+      //     "group block border border-gray-100 rounded-lg overflow-hidden bg-white shadow-sm hover:shadow-md";
+      //   card.innerHTML = `
+      //     <div class="bg-gray-50 p-6 flex justify-center items-center h-56">
+      //       <a href="product.html?id=${p.id}"><img src="${p.image}" alt="${(p.title || "").replace(/"6/g, "")}" class="h-full object-contain mix-blend-multiply transition group-hover:scale-105 duration-300" /></a>
+      //     </div>
+      //     <div class="p-4">
+      //       <div class="flex justify-between items-start mb-2">
+      //         <span class="text-[10px] bg-indigo-50 text-indigo-600 px-2 py-1 rounded font-semibold">${p.category}</span>
+      //         <div class="text-[10px] font-semibold text-yellow-500">⭐ ${p.rating?.rate ?? "0"}</div>
+      //       </div>
+      //       <h3 class="font-semibold text-sm text-gray-900 mb-2 line-clamp-1"><a href="product.html?id=${p.id}">${p.title}</a></h3>
+      //       <div class="flex items-center justify-between">
+      //         <div class="text-lg font-bold">$${p.price}</div>
+      //         <div class="flex gap-2">
+      //           <button data-details-id="${p.id}" class="px-3 py-1 text-xs border rounded text-gray-700 bg-white">Details</button>
+      //           <button data-add-id="${p.id}" class="px-3 py-1 text-xs bg-indigo-600 text-white rounded">Add</button>
+      //         </div>
+      //       </div>
+      //     </div>
+      //   `;
+      //   return card;
+      // }
       function makeCard(p) {
-        const card = document.createElement("div");
-        card.className =
-          "group block border border-gray-100 rounded-lg overflow-hidden bg-white shadow-sm hover:shadow-md";
-        card.innerHTML = `
-          <div class="bg-gray-50 p-6 flex justify-center items-center h-56">
-            <a href="product.html?id=${p.id}"><img src="${p.image}" alt="${(p.title || "").replace(/"/g, "")}" class="h-full object-contain mix-blend-multiply transition group-hover:scale-105 duration-300" /></a>
-          </div>
-          <div class="p-4">
-            <div class="flex justify-between items-start mb-2">
-              <span class="text-[10px] bg-indigo-50 text-indigo-600 px-2 py-1 rounded font-semibold">${p.category}</span>
-              <div class="text-[10px] font-semibold text-yellow-500">⭐ ${p.rating?.rate ?? "0"}</div>
-            </div>
-            <h3 class="font-semibold text-sm text-gray-900 mb-2 line-clamp-1"><a href="product.html?id=${p.id}">${p.title}</a></h3>
-            <div class="flex items-center justify-between">
-              <div class="text-lg font-bold">$${p.price}</div>
-              <div class="flex gap-2">
-                <button data-details-id="${p.id}" class="px-3 py-1 text-xs border rounded text-gray-700 bg-white">Details</button>
-                <button data-add-id="${p.id}" class="px-3 py-1 text-xs bg-indigo-600 text-white rounded">Add</button>
-              </div>
-            </div>
-          </div>
-        `;
-        return card;
-      }
+  const card = document.createElement("div");
+  card.className =
+    "group block border border-gray-100 rounded-lg overflow-hidden bg-white shadow-sm hover:shadow-md";
+
+  card.innerHTML = `
+    <div class="bg-gray-50 p-6 flex justify-center items-center h-64">
+      <a href="product.html?id=${p.id}" class="flex items-center justify-center w-full h-full">
+        <img 
+          src="${p.image}" 
+          alt="${p.title}" 
+          class="max-h-full max-w-full object-contain transition group-hover:scale-105 duration-300"
+        />
+      </a>
+    </div>
+
+    <div class="p-4">
+      <div class="flex justify-between items-start mb-2">
+        <span class="text-[10px] bg-indigo-50 text-indigo-600 px-2 py-1 rounded font-semibold">${p.category}</span>
+        <div class="text-[10px] font-semibold text-yellow-500">⭐ ${p.rating?.rate ?? "0"}</div>
+      </div>
+
+      <h3 class="font-semibold text-sm text-gray-900 mb-2 line-clamp-1">
+        <a href="product.html?id=${p.id}">${p.title}</a>
+      </h3>
+
+      <div class="flex items-center justify-between">
+        <div class="text-lg font-bold">$${p.price}</div>
+        <div class="flex gap-2">
+          <button data-details-id="${p.id}" class="px-3 py-1 text-xs border rounded text-gray-700 bg-white">Details</button>
+          <button data-add-id="${p.id}" class="px-3 py-1 text-xs bg-indigo-600 text-white rounded">Add</button>
+        </div>
+      </div>
+    </div>
+  `;
+
+  return card;
+}
+
 
       function setActiveCategory(activeBtn) {
         document.querySelectorAll(".category-btn").forEach((btn) => {
