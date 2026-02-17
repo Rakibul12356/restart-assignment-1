@@ -48,6 +48,15 @@ main {
   --brand: #4f46e5;
 }
 
+/* Mobile menu animation */
+#mobile-menu > div {
+  transform: translateX(-100%);
+}
+
+#mobile-menu > div.translate-x-0 {
+  transform: translateX(0);
+}
+
 /* Modal helpers */
 #product-modal {
   display: flex;
