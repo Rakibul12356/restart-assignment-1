@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Clear Cart - SwiftCart</title>
+  </head>
+  <body>
+    <h1>Cart Cleared!</h1>
+    <p>
+      Your shopping cart has been cleared.
+      <a href="index.html">Go back to home</a>
+    </p>
+    <script>
+      // Clear cart data from localStorage
+      localStorage.removeItem("swiftcart_cart");
+      setTimeout(() => {
+        window.location.href = "index.html";
+      }, 2000);
+    </script>
+  </body>
+</html>

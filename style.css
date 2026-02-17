@@ -1,0 +1,209 @@
+/* Imported styles moved from index.html */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap");
+
+body {
+  font-family: "Inter", sans-serif;
+}
+
+/* Layout: keep footer at bottom when content is short */
+html,
+body {
+  height: 100%;
+}
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+main {
+  flex: 1 0 auto;
+}
+
+/* Hero overlay gradient - darker for more interactive look */
+.hero-gradient {
+  background:
+    linear-gradient(to right, rgba(26, 35, 50, 0.75), rgba(26, 35, 50, 0.4)),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5));
+}
+
+@media (max-width: 768px) {
+  .hero-gradient {
+    background: rgba(26, 35, 50, 0.65);
+  }
+}
+
+/* Keep any previous minimal hero-img styles as well */
+.hero-img {
+  filter: brightness(0.7) saturate(0.9);
+}
+
+@media (min-width: 1024px) {
+  .hero-img {
+    background-attachment: fixed;
+  }
+}
+
+/* Additional site-wide helpers kept here */
+:root {
+  --brand: #4f46e5;
+}
+
+/* Modal helpers */
+#product-modal {
+  display: flex;
+}
+#product-modal.hidden {
+  display: none;
+}
+#product-modal .relative {
+  max-height: 90vh;
+}
+
+/* Product card layout fixes */
+/* Ensure card is a vertical flex container so footer sticks to bottom */
+.group.block {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+/* Image container (first child) - fixed height and center image */
+.group.block > div:first-child {
+  height: 220px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: #f8fafc;
+}
+
+.group.block img {
+  max-width: 100%;
+  max-height: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+  mix-blend-mode: normal;
+  transition: transform 0.25s ease;
+}
+
+.group.block:hover img {
+  transform: scale(1.03);
+}
+
+/* Card body grows to fill available space so footer aligns */
+.group.block > .p-4 {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+}
+.group.block > .p-4 .flex.items-center.justify-between {
+  margin-top: auto;
+}
+
+/* Ensure buttons and badges sit above images */
+.group.block .text-[10px],
+.group.block button {
+  position: relative;
+  z-index: 20;
+}
+
+/* Responsive image heights */
+@media (max-width: 640px) {
+  .group.block > div:first-child {
+    height: 180px;
+  }
+}
+
+/* Modal/backdrop stacking fixes */
+#product-modal {
+  z-index: 9999;
+}
+#product-modal #modal-backdrop {
+  z-index: 9988;
+}
+#product-modal > .relative,
+#product-modal .relative {
+  z-index: 9999;
+}
+
+/* Small helper to avoid long title overflow */
+.line-clamp-1 {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Product page centering and image sizing */
+.product-main {
+  min-height: calc(100vh - 64px - 120px);
+  display: flex;
+  align-items: center;
+}
+.product-main #product {
+  width: 100%;
+}
+.product-main #product .bg-gray-50 {
+  padding: 2rem;
+  border-radius: 0.5rem;
+}
+.product-main #product img {
+  max-height: 520px;
+  width: auto;
+  display: block;
+}
+
+@media (max-width: 768px) {
+  .product-main {
+    min-height: auto;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
+  .product-main #product img {
+    max-height: 320px;
+  }
+}
+
+/* Slightly reduce footer top margin on product page to keep visual balance */
+footer {
+  margin-top: 2rem;
+}
+
+/* Ensure hero has a reliable height even if Tailwind arbitrary classes are not applied */
+.hero-section {
+  min-height: 450px;
+  height: 450px;
+  position: relative;
+}
+@media (min-width: 768px) {
+  .hero-section {
+    min-height: 600px;
+    height: 600px;
+  }
+}
+
+/* Hero image animation */
+.hero-section img {
+  animation: subtle-zoom 20s ease-in-out infinite alternate;
+}
+
+@keyframes subtle-zoom {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.05);
+  }
+}
+
+/* Smooth button animations */
+.hero-section a,
+.hero-section button {
+  transition: all 0.3s ease;
+}
+
+.hero-section a:hover,
+.hero-section button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(79, 70, 229, 0.4);
+}
